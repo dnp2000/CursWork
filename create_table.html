@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <title>Создание таблиц</title>
+    <style>
+        @import url("my.css");
+    </style>
+</head>
+
+<body class="kletka">
+    <h2>Создание таблиц</h2>
+    <p>
+        Таблицы создаются командой CREATE TABLE. Эта команда создает
+        пустую таблицу. Команда CREATE TABLE определяет имя таблицы и саму
+        таблицу в виде описания набора имен столбцов, указанных в определенном
+        порядке. Она также определяет типы данных и размеры столбцов. Каждая
+        таблица должна иметь, по крайней мере, один столбец.
+        Синтаксис команды CREATE TABLE:
+    </p>
+    <div class="boxShadow">
+        <p>
+            <span class="sel1">CREATE TABLE</span>&nbsp;&lt;имя_таблицы&gt;<br>
+            (&lt;имя_поля1&gt;&nbsp;&lt;тип_поля1&gt;&nbsp;[NOT NULL][UNIQUE | PRIMARY KEY]<br>
+            [REFERENCES&nbsp;&lt;имя_мастер_таблицы&gt;&nbsp;[(&lt;имя_связанного_поля&gt;)]], <br>
+            ... <br>
+            [CONSTRAINT&nbsp;&lt;имя_ограничения&gt;<br>
+            PRIMARY KEY (&lt;имя_поля1&gt;[, ...]) |<br>
+            FOREIGN KEY (&lt;имя_ поля1&gt;[, ...]) REFERENCES&nbsp;&lt;имя_связанной_таблицы&gt;<br>
+            (&lt;имя_связанного_поля1&gt;[, ...]),... ]);
+        </p>
+    </div>
+    <p style="margin-top:19px;"> С помощью команды CREATE TABLE создаются поля (часть команды до
+        ключевого слова CONSTRAINT) и ограничения таблицы (часть команды после ключевого слова CONSTRAINT). </p>
+    <p>
+        Следует обратить внимание на то, что внешние ключи могут быть созданы
+        непосредственно при описании поля (конструкция REFERENCES). В этом
+        случае также создаѐтся ограничение, но такой способ его создания называют
+        неявным. Несмотря на различные способы описания, каждое из создаваемых
+        ограничений является отдельным, связанным с таблицей, объектом. Имена для
+        неявно описанных ограничений задаются самим ядром СУБД.
+    </p>
+
+    <a class="up" href="#top"><div class="up">Наверх</div></a>
+    <div onclick="location.href='#top'" class="up">Наверх</div>
+    <p id="up">
+        <button onclick="history.back();">Назад</button>
+        <button onclick="location.href='content.html'">Содержание</button>
+    </p>
+
+</body>
+
+</html>

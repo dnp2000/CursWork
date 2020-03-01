@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <title>Категории команд SQL</title>
+    <style>
+        @import url("my.css");
+    </style>
+</head>
+
+<body name="top" class="kletka">
+    <h2>Категории команд SQL</h2>
+    <p class="container">
+        <map name="map">
+            <area shape="rect" coords="0,0,180,180" href="ddl.html" alt="DDL" title="DDL - язык определения данных">
+            <area shape="rect" coords="382,0,562,180" href="dml.html" alt="DML" title="DML - язык манипуляции данными">
+            <area shape="rect" coords="191,191,371,371" href="dql.html" alt="DQL" title="DQL - язык запросов к данным">
+            <area shape="rect" coords="0,382,180,560" href="dcl.html" alt="DCL" title="DCL - язык управления данными">
+            <area shape="rect" coords="382,382,562,560" href="dal.html" alt="DAL – язык администрирования данных"
+                title="DAL - язык администрирования данных">
+        </map>
+        <img height="562px" width="562px" src="images/SQL.gif" alt="SQL-content" usemap="#map">
+    </p>
+    <div onclick="location.href='#top'" class="up">Наверх</div>
+    <p id="up">
+        <button onclick="history.back();">Назад</button>
+        <button onclick="location.href='content.html'">Содержание</button>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #0f4fa8;
+}
+
+h2 {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    /* color: #17006b;  */
+    font-size: 18pt;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+.kletka {
+    padding: 0 25px 0px 25px;
+    background: linear-gradient( #bbb, transparent 1px), linear-gradient( 90deg, #bbb, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, -1px -1px, -1px 1px;
+}
+
+.kletka p {
+    margin-top: 19px;
+    margin-bottom: 10px;
+    font-family: monospace;
+    color: #7407da;
+    font-size: 20px;
+    line-height: 40px;
+    font-style: italic;
+    text-align: justify;
+}
+
+.kletka ul, .kletka ol {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-family: monospace;
+    color: #7407da;
+    font-size: 20px;
+    line-height: 40px;
+    font-style: italic;
+    text-align: justify;
+}
+
+.kletka p.container {
+    /* background: rgb(189, 38, 38); */
+    text-align: center;
+}
+
+.cover {
+    background: rgb(189, 38, 38);
+    text-align: center;
+}
+
+.sel1 {
+    color: #fa7101;
+    font-weight: bold;
+}
+
+#up {
+    text-align: center;
+}
+
+#up a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #17006b;
+}
+
+#up button:hover {
+    background-color: #919cff;
+}
+
+.up {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    padding: 10px;
+    background: #ffe;
+    border: 1px solid #DDD;
+    opacity: 0.5;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.up:hover {
+    opacity: 1;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.up {
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+}
+.leftimg {
+    float: left;
+    margin: 7px 7px 7px 0;
+}
+
+.rightimg {
+    float: right;
+    margin: 7px 0 7px 7px;
+}
+
+.boxShadow {
+    width: 900px;
+    max-width: 98%;
+    margin: 11px auto -10px;
+    padding: 10px 10px;
+    background-color: rgb(255, 254, 235);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  }
+  
+  .boxShadow p{
+    font-family: 'Courier New', Courier, monospace;
+       /* color: #7407da; */
+    color: #000000;
+    font-size: 22px;
+    line-height: 30px;
+    font-style: normal;
+    text-decoration: none;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+p.ask{
+font-weight: bolder;
+color: #000000;
+}

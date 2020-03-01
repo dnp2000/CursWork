@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <title>Вопросы по SQL</title>
+    <style>
+        @import url("my.css");
+    </style>
+</head>
+
+<body class="kletka">
+    <h2>14 наиболее часто используемых запросов SQL на собеседовании</h2>
+    <p class="ask">Вопрос 1: SQL-запрос, чтобы найти вторую самую высокую зарплату работника?</p>
+    <p>Ответ: Есть много способов найти вторую самую высокую зарплату работника в SQL, вы можете использовать в
+        SQL объединение или подзапрос, чтобы решить эту проблему. Вот SQL-запрос с использованием подзапроса:
+    </p>
+    <div class="boxShadow">
+        <p>
+            <!-- <span class="sel1">SELECT</span>&nbsp;MAX(Salary)<br>
+            <span class="sel1">FROM</span>&nbsp;Employee<br>
+            <span class="sel1">WHERE</span>&nbsp;Salary <span class="sel1">NOT IN</span>
+            (<span class="sel1">SELECT</span>&nbsp;MAX(Salary)<span class="sel1">FROM</span>&nbsp;Employee); -->
+            SELECT MAX(Salary) from Employee <br>
+            WHERE Salary NOT IN (select MAX(Salary) from Employee );
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 40px">
+        Вопрос 2: SQL-запрос, чтобы найти максимальную зарплату от каждого отдела.
+    </p>
+    <p>
+        Ответ: Вы можете найти максимальную зарплату для каждого отдела, группируя все записи по DeptId, а затем с
+        помощью функции MAX(), чтобы вычислить максимальную зарплату в каждой группе или каждого отдела.
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT DeptID, MAX(Salary) FROM Employee GROUP BY DeptID.
+        </p>
+    </div>
+    <p style="margin-top: 30px">
+        Эти вопросы становятся более интересными, если Интервьюер попросит вас напечатать название отдела вместо отдела
+        ID, в этом случае, вам нужно соединить таблицу Employee с Department с использованием внешнего ключа DeptID,
+        убедитесь, что вы используете LEFT or RIGHT OUTER JOIN включая отделов без каких – либо сотрудников. Вот запрос:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT DeptName, MAX(Salary) FROM Employee e <br>
+            RIGHT JOIN Department d ON e.DeptId = d.DeptID <br>
+            GROUP BY DeptName;
+        </p>
+    </div>
+    <p style="margin-top: 28px">
+        В этом запросе мы использовали RIGHT OUTER JOIN, потому что нам нужно название отдела из таблицы Department,
+        который находится на правой стороне JOIN, даже если нет никакого упоминания о dept_id в таблице сотрудников.
+    </p>
+    <p class="ask" style="margin-top: 20px">
+        Вопрос 3: Написать SQL – запрос для отображения текущей даты.
+    </p>
+    <p>
+        Ответ: SQL имеет встроенную функцию под названием GetDate(), которая возвращает текущую временную метку. Это
+        будет работать в Microsoft SQL Server, другие производители, такие как Oracle и MySQL также имеет эквивалентные
+        функции.
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT GetDate();
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 30px">
+        Вопрос 4: Напишите SQL запрос, чтобы проверить дату в передаваемом запросе, является ли дата данного формата или
+        нет.
+    </p>
+    <p>
+        Ответ: SQL имеет функцию IsDate(), которая используется для проверки переданное значение, является дата или не
+        указанного формата, он возвращает 1 (истина) или 0 (ложь), соответственно. Помните IsDate() является функцией
+        MSSQL и он может не работать на Oracle, MySQL или любой другой базе данных, но не было бы что – то подобное.
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT ISDATE('1/08/13') AS "MM/DD/YY";
+        </p>
+    </div>
+    <p style="margin-top: 30px">Она возвращает 0, потому что дата не в правильном формате.</p>
+    <p class="ask" style="margin-top: 20px">
+        Вопрос 5: Напишите SQL запрос, чтобы напечатать имя отдельного работника у которого поле DOB составляет от
+        01/02/1965 до 31/11/1970.
+    </p>
+    <p>
+        Ответ: Этот SQL-запрос является сложным, но вы можете использовать BETWEEN, чтобы получить все записи, у которых
+        дата падеет между двумя датами.
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT DISTINCT EmpName FROM Employees <br>
+            WHERE DOB BETWEEN ‘01/02/1965’ AND ‘31/11/1970’;
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 40px">
+        Вопрос 6: написать SQL запрос, где найти количество сотрудников в зависимости от пола , чье поле DOB между
+        01/02/1965 до 31/11/1970.
+    </p>
+    <p>
+        Ответ:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT COUNT(*), sex from Employees <br>
+            WHERE DOB BETWEEN '01/02/1965' AND '31/11/1970' <br>
+            GROUP BY sex;
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 30px">
+        Вопрос 7: Напишите SQL запрос, чтобы найти сотрудника, чья зарплата равна или превышает 20000.
+    </p>
+    <p>
+        Ответ:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT EmpName FROM Employees WHERE Salary>=20000;
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 30px">
+        Вопрос 8: Напишите SQL запрос, чтобы найти имя сотрудника, чье имя начинается с ‘M’
+    </p>
+    <p>
+        Ответ:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT * FROM Employees WHERE EmpName like 'M%';
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 30px">
+        Вопрос 9: Найти все записи о сотрудниках, содержащие слово “Роман”, независимо от того, был ли он, как РОМАН,
+        Роман, или роман.
+    </p>
+    <p>
+        Ответ:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT * from Employees WHERE UPPER(EmpName) like '%РОМАН%';
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 30px">
+        Вопрос 10: Напишите SQL запрос, чтобы найти год от даты.
+    </p>
+    <p>
+        Ответ: Вот как вы можете найти год от даты в SQL Server 2008.
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT YEAR(GETDATE()) as "Год";
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 30px">
+        Вопрос 11: Написать SQL – запрос для поиска дубликатов строк в базе данных? а затем написать SQL запрос, чтобы
+        удалить их?
+    </p>
+    <p>
+        Ответ: Вы можете использовать следующий запрос для выбора различных записей:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT * FROM emp a <br>
+            WHERE rowid = (SELECT MAX(rowid) <br>
+            FROM EMP b WHERE a.empno = b.empno);
+        </p>
+    </div>
+    <p style="margin-top: 30px">удалить:</p>
+    <div class="boxShadow">
+        <p>
+            DELETE FROM emp a <br>
+            WHERE rowid != (SELECT MAX(rowid) <br>
+            FROM emp b WHERE a.empno = b.empno);
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 28px">
+        Вопрос 12: Существует таблица, которая содержит два столбца Student и Marks, вам нужно найти всех студентов, чьи
+        оценки являются больше, чем средние оценки, т.е. список студентов выше среднего.
+    </p>
+    <p>
+        Ответ: Этот запрос можно записать с помощью подзапросов, как показано ниже:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT student, marks <br>
+            FROM table where marks > (SELECT AVG(marks) from table);
+        </p>
+    </div>
+    <p class="ask" style="margin-top: 40px">
+        Вопрос 13: Как найти всех сотрудников, которые являются менеджерами?
+    </p>
+    <p>
+        Cтандартная таблица сотрудников с дополнительной колонкой mgr_id , которая содержит идентификатор
+        сотрудника менеджера:
+    </p>
+    <p style="text-align: center"> <img src="images/Employee-Manager-query.gif" alt="Tables"></p>
+    <p style="margin-top: 16px">
+        Ответ: Вы должны знать о автообъединении, чтобы решить эту проблему. В автообъединение, вы можете присоединиться
+        два экземпляра одной и той же таблицы, чтобы выяснить дополнительные подробности, как показано ниже:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT e.name, m.name FROM Employee e, Employee m <br>
+            WHERE e.mgr_id = m.emp_id;
+        </p>
+    </div>
+    <p>
+        Чтобы найти сотрудников, которые не имеют статус менеджера, просто используйте left outer join, он также будет
+        включать сотрудников без менеджеров.
+    </p>
+    <p class="ask" style="margin-top: 20px">
+        Вопрос 14: У вас есть композитный индекс из трех колонок, как вы обеспечиваете значение двух столбцов в WHERE на
+        выборку? Будет ли индекс использоваться для этой операции?
+    </p>
+    <p>
+        Ответ: Например, если индекс находится на EmpId, EmpFirstName и EmpSecondName и вы пишете запрос типа:
+    </p>
+    <div class="boxShadow">
+        <p>
+            SELECT * FROM Employee <br>
+            WHERE EmpId=2 and EmpFirstName='Radhe'
+        </p>
+    </div>
+    <p>Если данные в две колонки являются вторичными индексами столбца, то индекс не будет ссылаться, но если данные 2
+        колонок содержат первичный индекс (первый столбец при создании индекса), то индекс будет ссылаться. В этом
+        случае индекс будет использоваться, поскольку EmpId и EmpFirstName являются первичные столбцы.</p>
+    <div onclick="location.href='#top'" class="up">Наверх</div>
+    <p id="up">
+        <button onclick="javascript:history.back();">Назад</button>
+        <button onclick="location.href='content.html'">Содержание</button>
+    </p>
+</body>
+
+</html>

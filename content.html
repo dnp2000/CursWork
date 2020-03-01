@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <title>Содержание</title>
+    <style>
+        @import url("my.css");
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-style: italic;
+            font-size: 1em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: rgb(40, 3, 143);
+        }
+
+        ol>li::first-letter {
+            color: red;
+        }
+
+        div.fix_block {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 0px;
+            /* border: 1px solid #000; */
+            background: url('images/db.png') no-repeat;
+            background-size: contain;
+            background-position: center;
+            height: 400px;
+            width: 400px;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+
+<body class="kletka">
+    
+    <h2>СОДЕРЖАНИЕ</h2>
+    <p style="margin-top: 40px">
+        <ol>
+            <li><a href="what_sql.html">Что такое SQL?</a></li>
+            <li><a href="map_sql_com.html">Категории команд SQL</a>
+                <ul style="margin-top: 0px; margin-left: 0px; list-style: disc;">
+                    <li><a href="ddl.html">DDL - язык определения данных</a></li>
+                    <li><a href="dml.html">DML - язык манипуляции данными</a></li>
+                    <li><a href="dql.html">DQL - язык запросов к данным</a></li>
+                    <li><a href="dcl.html">DCL - язык управления данными</a></li>
+                    <li><a href="dal.html">DAL – язык администрирования данных</a></li>
+                </ul>
+            </li>
+            <li><a href="create_table.html">Создание таблиц</a></li>
+            <li><a href="del_table.html">Удаление таблиц</a></li>
+            <li><a href="select.html">Выборка данных</a></li>
+            <li><a href="joins.html">Виды объединений</a></li>
+            <li><a href="ask.html">Вопросы по SQL</a></li>
+            <li><a href="files/SQL-cheat-sheet.pdf">Шпаргалка по SQL (pdf)</a></li>
+        </ol>
+    </p>
+
+    <DIV class="fix_block">&nbsp;</DIV>
+    <div onclick="location.href='#top'" class="up">Наверх</div>
+    <p id="up">
+        <button onclick="history.back();">Назад</button>
+        <!-- <input value="Кнопка" type="button" onclick="location.href='ВАША_ССЫЛКА_НА_СТРАНИЦУ'" /> -->
+    </p>
+</body>
+
+</html>
